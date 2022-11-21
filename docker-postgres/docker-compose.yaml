@@ -1,0 +1,42 @@
+version: '3'
+services:
+
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile    
+    container_name: postgres
+    command:
+       # configuration for logging. All this config properties we can also set in postgres.conf.conf
+      - "postgres"
+      - "-c"
+      - "log_statement=all"
+      - "-c"
+      - "log_directory=log"
+      - "-c"
+      - "log_filename=postgresql-%Y-%m-%d_%H%M%S.log"
+      - "-c"
+      - "logging_collector=on"      
+      - "-c"
+      - "log_min_error_statement=error"
+      - "-c"
+      - "log_rotation_age=60"
+    volumes: 
+      - ./pgdata:/var/lib/postgresql/data
+      - ./pgconf:/etc/postgresql
+      - ./pglog:/var/log/postgresql
+      - ./init_scripts:/docker-entrypoint-initdb.d
+    ports:
+        - "5432:5432"
+    environment:
+      - POSTGRES_DB=hh
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  pgadmin4:
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    ports:
+        - "8085:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=user@domain.local
+      - PGADMIN_DEFAULT_PASSWORD=SuperSecret
