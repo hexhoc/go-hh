@@ -1,2 +1,5 @@
 .idea
 .vscode
+/docker-postgres/pgdata
+/docker-postgres/pglog
+/docker-postgres/pgconf
