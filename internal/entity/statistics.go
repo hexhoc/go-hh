@@ -1,9 +1,12 @@
 package entity
 
-import "time"
+import (
+	"github.com/gofrs/uuid"
+	"time"
+)
 
 type Statistics struct {
-	Id                    int64     `json:"id"`
+	Id                    uuid.UUID `json:"id"`
 	Date                  time.Time `json:"date"`
 	Name                  string    `json:"name"`
 	TotalVacancies        int32     `json:"totalVacancies"`

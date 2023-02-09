@@ -87,27 +87,27 @@ func (vacancyPostgres *VacancyPostgres) GetCountWithSalaryLess100k(name string) 
 }
 
 func (vacancyPostgres *VacancyPostgres) GetCountWithSalaryBetween100k150k(name string) int32 {
-	return vacancyPostgres.getCount("select count(salary_avg) from vacancy where salary_avg between 100000 and 150000 and salary_currency = 'RUR' and type = $1::varchar", name)
+	return vacancyPostgres.getCount("select count(salary_avg) from vacancy where salary_avg between 100000 and 149999 and salary_currency = 'RUR' and type = $1::varchar", name)
 }
 
 func (vacancyPostgres *VacancyPostgres) GetCountWithSalaryBetween150k200k(name string) int32 {
-	return vacancyPostgres.getCount("select count(salary_avg) from vacancy where salary_avg between 150000 and 200000 and salary_currency = 'RUR' and type = $1::varchar", name)
+	return vacancyPostgres.getCount("select count(salary_avg) from vacancy where salary_avg between 150000 and 199999 and salary_currency = 'RUR' and type = $1::varchar", name)
 }
 
 func (vacancyPostgres *VacancyPostgres) GetCountWithSalaryBetween200k250k(name string) int32 {
-	return vacancyPostgres.getCount("select count(salary_avg) from vacancy where salary_avg between 200000 and 250000 and salary_currency = 'RUR' and type = $1::varchar", name)
+	return vacancyPostgres.getCount("select count(salary_avg) from vacancy where salary_avg between 200000 and 249999 and salary_currency = 'RUR' and type = $1::varchar", name)
 }
 
 func (vacancyPostgres *VacancyPostgres) GetCountWithSalaryBetween250k300k(name string) int32 {
-	return vacancyPostgres.getCount("select count(salary_avg) from vacancy where salary_avg between 250000 and 300000 and salary_currency = 'RUR' and type = $1::varchar", name)
+	return vacancyPostgres.getCount("select count(salary_avg) from vacancy where salary_avg between 250000 and 299999 and salary_currency = 'RUR' and type = $1::varchar", name)
 }
 
 func (vacancyPostgres *VacancyPostgres) GetCountWithSalaryBetween300k350k(name string) int32 {
-	return vacancyPostgres.getCount("select count(salary_avg) from vacancy where salary_avg between 300000 and 350000 and salary_currency = 'RUR' and type = $1::varchar", name)
+	return vacancyPostgres.getCount("select count(salary_avg) from vacancy where salary_avg between 300000 and 349999 and salary_currency = 'RUR' and type = $1::varchar", name)
 }
 
 func (vacancyPostgres *VacancyPostgres) GetCountWithSalaryBetween350k400k(name string) int32 {
-	return vacancyPostgres.getCount("select count(salary_avg) from vacancy where salary_avg between 350000 and 400000 and salary_currency = 'RUR' and type = $1::varchar", name)
+	return vacancyPostgres.getCount("select count(salary_avg) from vacancy where salary_avg between 350000 and 399999 and salary_currency = 'RUR' and type = $1::varchar", name)
 }
 
 func (vacancyPostgres *VacancyPostgres) GetCountWithSalaryMore400k(name string) int32 {
