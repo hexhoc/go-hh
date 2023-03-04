@@ -1,4 +1,60 @@
-insert into public.statistics (id, applicant_per_vacancy, average_salary, count_applicant, date, name, salary_between100k150k, salary_between150k200k, salary_between200k250k, salary_between250k300k, salary_between300k350k, salary_between350k400k, salary_less100k, salary_more400k, total_vacancies, without_salary)
+
+create table statistics
+(
+    id                     uuid DEFAULT gen_random_uuid() not null
+        primary key,
+    applicant_per_vacancy  numeric(19, 2),
+    average_salary         integer,
+    count_applicant        integer,
+    date                   date,
+    name                   varchar(255),
+    salary_between100k150k integer,
+    salary_between150k200k integer,
+    salary_between200k250k integer,
+    salary_between250k300k integer,
+    salary_between300k350k integer,
+    salary_between350k400k integer,
+    salary_less100k        integer,
+    salary_more400k        integer,
+    total_vacancies        integer,
+    without_salary         integer
+);
+
+create table employer
+(
+    id            serial8 primary key,
+    alternate_url varchar(255),
+    name          varchar(255),
+    trusted       boolean,
+    url           varchar(255),
+    vacancies_url varchar(255)
+);
+
+create table vacancy
+(
+    id                       serial8 primary key,
+    accept_temporary         boolean,
+    alternate_url            varchar(255),
+    archived                 boolean,
+    area                     varchar(255),
+    created_at               varchar(255),
+    has_test                 boolean,
+    name                     varchar(255),
+    premium                  boolean,
+    published_at             varchar(255),
+    response_letter_required boolean,
+    salary_avg               integer,
+    salary_currency          varchar(255),
+    salary_from              integer default 0,
+    salary_gross             boolean,
+    salary_to                integer default 0,
+    schedule                 varchar(255),
+    type                     varchar(255),
+    url                      varchar(255),
+    employer_id              bigint
+);
+
+insert into statistics (id, applicant_per_vacancy, average_salary, count_applicant, date, name, salary_between100k150k, salary_between150k200k, salary_between200k250k, salary_between250k300k, salary_between300k350k, salary_between350k400k, salary_less100k, salary_more400k, total_vacancies, without_salary)
 values  ('fca4a5ba-778a-4614-90d5-dbf59c02cbaa', 4.30, 150049, 6189, '2022-07-15', '1C', 176, 258, 146, 31, 11, 3, 153, 0, 1439, 806),
         ('84019610-3274-4a1b-a8e9-03a52680c769', null, 150220, null, '2022-07-16', '1C', 173, 259, 146, 31, 10, 3, 151, 0, 1429, 801),
         ('040277ea-3fec-432e-9bda-1858c7dca57a', null, 150294, null, '2022-07-17', '1C', 166, 249, 140, 30, 10, 3, 145, 0, 1388, 782),
