@@ -12,7 +12,6 @@ import (
 	"net/http"
 	"os"
 	"strconv"
-	"sync"
 )
 
 type VacancyUseCase struct {
@@ -46,22 +45,22 @@ func (v *VacancyUseCase) Load() {
 	m["FRONTEND"] = "https://api.hh.ru/vacancies?search_field=name&text=name:(frontend%20OR%20react%20OR%20node.js%20OR%20vue%20OR%20angular%20OR%20javascript)&area=1"
 	m["DEVOPS"] = "https://api.hh.ru/vacancies?search_field=name&text=devops&area=1"
 
-	var wg sync.WaitGroup
+	// var wg sync.WaitGroup
 
 	for vacancyType, url := range m {
 		// Increment the WaitGroup counter.
-		wg.Add(1)
-		go func(vacancyType string, url string) {
-			// Decrement the counter when the goroutine completes.
-			defer wg.Done()
-			v.downloadVacanciesByType(vacancyType, url)
-			v.statisticsUseCase.CalculateStatistics(vacancyType)
-			fmt.Println(vacancyType)
-		}(vacancyType, url)
+		// wg.Add(1)
+		// go func(vacancyType string, url string) {
+		// Decrement the counter when the goroutine completes.
+		// defer wg.Done()
+		v.downloadVacanciesByType(vacancyType, url)
+		v.statisticsUseCase.CalculateStatistics(vacancyType)
+		fmt.Println(vacancyType)
+		// }(vacancyType, url)
 	}
 
 	// Wait for all HTTP fetches to complete.
-	wg.Wait()
+	// wg.Wait()
 }
 
 func (v *VacancyUseCase) downloadVacanciesByType(vacancyType string, url string) {

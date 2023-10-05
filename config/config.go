@@ -2,8 +2,9 @@ package config
 
 import (
 	"fmt"
-	"gopkg.in/yaml.v3"
 	"os"
+
+	"gopkg.in/yaml.v3"
 )
 
 type (
@@ -37,7 +38,10 @@ func NewConfig() (*Config, error) {
 	cfg := &Config{}
 	yamlFile, err := os.ReadFile("./config/config.yml")
 	if err != nil {
-		return nil, fmt.Errorf("config error: %w", err)
+		yamlFile, err = os.ReadFile("./../../config/config.yml")
+		if err != nil {
+			return nil, fmt.Errorf("config error: %w", err)
+		}
 	}
 
 	err = yaml.Unmarshal(yamlFile, cfg)
