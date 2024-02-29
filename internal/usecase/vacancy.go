@@ -37,13 +37,13 @@ func (v *VacancyUseCase) Load() {
 	m["JAVA"] = "https://api.hh.ru/vacancies?search_field=name&text=NAME:(java%20AND%20NOT%20script)%20AND%20DESCRIPTION:(NOT%20Android)&area=1"
 	m["SCALA"] = "https://api.hh.ru/vacancies?search_field=name&text=scala&area=1"
 	m["RUST"] = "https://api.hh.ru/vacancies?search_field=name&text=rust&area=1"
-	m["KOTLIN"] = "https://api.hh.ru/vacancies?search_field=name&text=kotlin&area=1"
 	m["PHP"] = "https://api.hh.ru/vacancies?search_field=name&text=PHP&area=1"
 	m["PYTHON"] = "https://api.hh.ru/vacancies?search_field=name&text=python&area=1"
 	m["GOLANG"] = "https://api.hh.ru/vacancies?search_field=name&text=name:(go%20or%20golang)&area=1"
-	m["1C"] = "https://api.hh.ru/vacancies?search_field=name&text=name:(1%D0%A1%20AND%20NOT%20bitrix%20AND%20NOT%20%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D1%89%D0%B8%D0%BA%20AND%20NOT%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%20AND%20NOT%20%D0%9A%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D0%BD%D1%82%20AND%20NOT%20%D0%90%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80%20AND%20NOT%20%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%20AND%20NOT%20%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80)&area=1"
+	m["1C"] = "https://api.hh.ru/vacancies?search_field=name&text=name:(%22разработчик%201С%22%20OR%20%22архитектор%201С%22)&area=1"
 	m["FRONTEND"] = "https://api.hh.ru/vacancies?search_field=name&text=name:(frontend%20OR%20react%20OR%20node.js%20OR%20vue%20OR%20angular%20OR%20javascript)&area=1"
 	m["DEVOPS"] = "https://api.hh.ru/vacancies?search_field=name&text=devops&area=1"
+	m["СИСТЕМНЫЙ АНАЛИТИК"] = "https://api.hh.ru/vacancies?search_field=name&text=NAME:(%22системный%20аналитик%22%20OR%20%22product%20owner%22%20OR%20%22аналитик%201С%22)&area=1"
 
 	// var wg sync.WaitGroup
 
